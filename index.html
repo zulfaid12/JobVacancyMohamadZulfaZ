@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Vacancies - PT Mzz Industrial Automation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .active-filter {
+            background-color: #2563eb;
+            color: white;
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        #fileInput {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">PT Mzz Industrial Automation</h1>
+            <p class="text-lg text-gray-600">Industrial Automation Solutions Since 2025</p>
+            <div class="mt-4">
+                <span class="text-sm text-gray-500">Owned by: Mohamad Zulfa Zakariya</span>
+            </div>
+        </header>
+
+        <!-- Job Vacancies Section -->
+        <section class="mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <h2 class="text-3xl font-bold text-gray-800">Current Job Openings</h2>
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="jobSearch" placeholder="Search jobs..." class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+
+            <!-- Job Filters -->
+            <div class="flex flex-wrap gap-2 mb-8">
+                <button class="filter-btn px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" data-filter="all">
+                    All Positions
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white border border-gray-300 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" data-filter="engineering">
+                    Engineering
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white border border-gray-300 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" data-filter="automation">
+                    Automation
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white border border-gray-300 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" data-filter="technical">
+                    Technical
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white border border-gray-300 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" data-filter="full-time">
+                    Full-time
+                </button>
+                <button class="filter-btn px-4 py-2 bg-white border border-gray-300 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" data-filter="contract">
+                    Contract
+                </button>
+            </div>
+
+            <!-- Job Listings -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="jobListings">
+                <!-- Job 1 -->
+                <div class="job-card bg-white rounded-lg shadow overflow-hidden transition duration-300" data-department="engineering" data-type="full-time">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Senior Automation Engineer</h3>
+                                <p class="text-gray-600">Engineering Department</p>
+                            </div>
+                            <span class="tag bg-blue-100 text-blue-800">Full-time</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Jakarta, Indonesia</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Lead automation projects with PLC, SCADA, and robotics experience. Minimum 5 years in industrial automation required.</p>
+                        <div class="mb-4">
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">PLC</span>
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">SCADA</span>
+                            <span class="tag bg-gray-100 text-gray-800">Robotics</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Posted 3 days ago</span>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card bg-white rounded-lg shadow overflow-hidden transition duration-300" data-department="technical" data-type="contract">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">PLC Programmer</h3>
+                                <p class="text-gray-600">Technical Team</p>
+                            </div>
+                            <span class="tag bg-green-100 text-green-800">Contract</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Surabaya, Indonesia</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Develop and troubleshoot PLC programs for manufacturing systems. Experience with Siemens and Allen-Bradley required.</p>
+                        <div class="mb-4">
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">Siemens</span>
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">Allen-Bradley</span>
+                            <span class="tag bg-gray-100 text-gray-800">Ladder Logic</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Posted 1 week ago</span>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card bg-white rounded-lg shadow overflow-hidden transition duration-300" data-department="automation" data-type="full-time">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">SCADA Specialist</h3>
+                                <p class="text-gray-600">Automation Team</p>
+                            </div>
+                            <span class="tag bg-purple-100 text-purple-800">Full-time</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Bandung, Indonesia</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Design and implement SCADA systems for industrial processes. Experience with Ignition and WinCC preferred.</p>
+                        <div class="mb-4">
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">Ignition</span>
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">WinCC</span>
+                            <span class="tag bg-gray-100 text-gray-800">HMI</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Posted 5 days ago</span>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="job-card bg-white rounded-lg shadow overflow-hidden transition duration-300" data-department="technical" data-type="part-time">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Robotics Technician</h3>
+                                <p class="text-gray-600">Technical Team</p>
+                            </div>
+                            <span class="tag bg-yellow-100 text-yellow-800">Part-time</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Bekasi, Indonesia</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Maintain and troubleshoot robotic systems in manufacturing environment. Experience with ABB or Fanuc robots preferred.</p>
+                        <div class="mb-4">
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">Robotics</span>
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">ABB</span>
+                            <span class="tag bg-gray-100 text-gray-800">Fanuc</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Posted 2 days ago</span>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 5 -->
+                <div class="job-card bg-white rounded-lg shadow overflow-hidden transition duration-300" data-department="engineering" data-type="full-time">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Electrical Designer</h3>
+                                <p class="text-gray-600">Engineering Department</p>
+                            </div>
+                            <span class="tag bg-blue-100 text-blue-800">Full-time</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Tangerang, Indonesia</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Create electrical schematics and control panel designs for automation systems. Proficiency in AutoCAD Electrical required.</p>
+                        <div class="mb-4">
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">AutoCAD</span>
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">E-Plan</span>
+                            <span class="tag bg-gray-100 text-gray-800">Schematics</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Posted 1 week ago</span>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job 6 -->
+                <div class="job-card bg-white rounded-lg shadow overflow-hidden transition duration-300" data-department="management" data-type="full-time">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Project Manager</h3>
+                                <p class="text-gray-600">Management</p>
+                            </div>
+                            <span class="tag bg-blue-100 text-blue-800">Full-time</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 mb-4">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Jakarta, Indonesia</span>
+                        </div>
+                        <p class="text-gray-700 mb-4">Oversee industrial automation projects from conception to completion. PMP certification and 5+ years experience required.</p>
+                        <div class="mb-4">
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">PMP</span>
+                            <span class="tag bg-gray-100 text-gray-800 mr-2">Agile</span>
+                            <span class="tag bg-gray-100 text-gray-800">Leadership</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Posted 4 days ago</span>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Apply Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Company -->
+        <section class="bg-white rounded-lg shadow p-8 mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">About PT Mzz Industrial Automation</h2>
+            <div class="prose max-w-none text-gray-700">
+                <p>PT Mzz Industrial Automation, founded in 2025 by Mohamad Zulfa Zakariya, is a leading provider of industrial automation solutions in Indonesia. We specialize in designing, implementing, and maintaining automation systems for manufacturing plants across various industries.</p>
+                <p class="mt-4">Our team of experienced engineers and technicians work with cutting-edge technologies including PLC programming, SCADA systems, robotics, and industrial IoT solutions. We pride ourselves on delivering reliable, efficient, and innovative automation solutions that help our clients improve productivity and reduce operational costs.</p>
+                <p class="mt-4">Headquartered in Blitar, we serve clients throughout Indonesia with a commitment to excellence and customer satisfaction.</p>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="bg-white rounded-lg shadow p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Contact Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">PT Mzz Industrial Automation</h3>
+                    <p class="text-gray-600 mb-1"><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i> Jl. Industri Raya No. 123, Blitar 12950</p>
+                    <p class="text-gray-600 mb-1"><i class="fas fa-phone-alt mr-2 text-blue-600"></i> +62 21 1234 5678</p>
+                    <p class="text-gray-600"><i class="fas fa-envelope mr-2 text-blue-600"></i> hr@mzz-automation.co.id</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Application Submission</h3>
+                    <p class="text-gray-600 mb-4">Please send your CV and cover letter to the email address above or upload directly here:</p>
+                    <button id="uploadBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg mb-2">
+                        <i class="fas fa-upload mr-2"></i> Upload CV
+                    </button>
+                    <input type="file" id="fileInput" accept=".pdf,.doc,.docx">
+                    <button id="emailBtn" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg">
+                        <i class="fas fa-envelope mr-2"></i> Email HR Department
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden modal">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Upload Your CV</h3>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mb-4">
+                <label for="applicantName" class="block text-gray-700 mb-2">Full Name</label>
+                <input type="text" id="applicantName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="applicantEmail" class="block text-gray-700 mb-2">Email Address</label>
+                <input type="email" id="applicantEmail" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="applicantPhone" class="block text-gray-700 mb-2">Phone Number</label>
+                <input type="tel" id="applicantPhone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-6">
+                <label for="cvFile" class="block text-gray-700 mb-2">Select CV File (PDF or Word)</label>
+                <input type="file" id="cvFile" accept=".pdf,.doc,.docx" class="w-full">
+            </div>
+            <div class="flex justify-end">
+                <button id="submitApplication" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+                    Submit Application
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const jobSearch = document.getElementById('jobSearch');
+            const jobCards = document.querySelectorAll('.job-card');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const fileInput = document.getElementById('fileInput');
+            const emailBtn = document.getElementById('emailBtn');
+            const uploadModal = document.getElementById('uploadModal');
+            const closeModal = document.getElementById('closeModal');
+            const submitApplication = document.getElementById('submitApplication');
+            
+            // Initialize with "All Positions" selected
+            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active-filter');
+            
+            // Filter by department/type
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Update active button styling
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active-filter', 'bg-blue-600', 'text-white');
+                        btn.classList.add('bg-white', 'border', 'border-gray-300');
+                    });
+                    
+                    this.classList.remove('bg-white', 'border', 'border-gray-300');
+                    this.classList.add('active-filter', 'bg-blue-600', 'text-white');
+                    
+                    // Filter jobs
+                    jobCards.forEach(card => {
+                        const department = card.getAttribute('data-department');
+                        const type = card.getAttribute('data-type');
+                        
+                        if (filterValue === 'all' || 
+                            department === filterValue || 
+                            type === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Search functionality
+            jobSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                jobCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p.text-gray-700').textContent.toLowerCase();
+                    const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                    
+                    if (title.includes(searchTerm) || 
+                        description.includes(searchTerm) || 
+                        tags.some(tag => tag.includes(searchTerm))) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Apply Now buttons
+            const applyButtons = document.querySelectorAll('.job-card button');
+            applyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const jobTitle = this.closest('.job-card').querySelector('h3').textContent;
+                    uploadModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Upload CV functionality
+            uploadBtn.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    uploadModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+            
+            // Email HR button
+            emailBtn.addEventListener('click', function() {
+                window.location.href = 'mailto:hr@mzz-automation.co.id?subject=Job Application';
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                uploadModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Submit application
+            submitApplication.addEventListener('click', function() {
+                const name = document.getElementById('applicantName').value;
+                const email = document.getElementById('applicantEmail').value;
+                const phone = document.getElementById('applicantPhone').value;
+                const file = document.getElementById('cvFile').files[0];
+                
+                if (!name || !email || !phone || !file) {
+                    alert('Please fill in all fields and select a file');
+                    return;
+                }
+                
+                // Here you would typically send this data to a server
+                // For demo purposes, we'll just show a success message
+                alert('Thank you for your application! We will review your CV and contact you soon.');
+                
+                // Reset form and close modal
+                document.getElementById('applicantName').value = '';
+                document.getElementById('applicantEmail').value = '';
+                document.getElementById('applicantPhone').value = '';
+                document.getElementById('cvFile').value = '';
+                uploadModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+    </script>
+</body>
+</html>
